@@ -1,0 +1,28 @@
+@import '../../vars.scss';
+
+.chat {
+    width: 100%;
+}
+
+.chat__inner {
+    display: flex;
+    align-items: center;
+    border-top: 1px solid rgba($color: #000000, $alpha: .3);
+
+    & .btn {
+        width: 20%;
+    }
+}
+
+.chat__input {
+    width: 100%;
+    background: 0;
+    padding: 0;
+    border: 0;
+
+    padding: 1rem;
+
+    &:focus {
+        outline: none;
+    }
+}
