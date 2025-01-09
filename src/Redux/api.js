@@ -1,10 +1,7 @@
 import axios from 'axios';
 
-const baseUrl = process.env.REACT_APP_API_BASE_URL;
-console.log(baseUrl);
-
 let instance = axios.create({
-    baseURL: baseUrl,
+    baseURL: 'https://chat-server-zjlf.onrender.com',
     headers: {'Authorization': `Bearer ${window.localStorage.getItem('token')}`}
 })
 
