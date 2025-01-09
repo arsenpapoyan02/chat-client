@@ -63,7 +63,7 @@ export const login = (email, password) => async (dispatch) => {
     .catch((err) => {
         const error = err.response.data
         dispatch(showError(error));
-        console.clear();
+        // console.clear();
     })
 
 }
