@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 import store from './Redux/store';
 import { io } from 'socket.io-client';
 
-let socket = io('http://localhost:5000', {
+let socket = io('https://chat-server-zjlf.onrender.com', {
   autoConnect: true,
   reconnection: true,
 });
