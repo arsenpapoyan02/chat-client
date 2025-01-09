@@ -26,9 +26,6 @@ class Messages extends React.Component {
 
     render() {
 
-        // You have problem with message item key
-        // Try to solve this with getting messageId from other user and after that getById in db. May be should work.
-
         return (
             <div className="messages">
                 <div className="messages__inner">

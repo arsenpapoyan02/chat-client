@@ -1,7 +1,5 @@
 import React from "react";
 import './login.scss';
-// import { DotLottieReact } from '@lottiefiles/dotlottie-react';
-import { Link } from 'react-router';
 
 class Login extends React.Component {
     render() {
@@ -58,7 +56,7 @@ class Login extends React.Component {
                     </form>
                     <p className="accountAsk">
                         Don't have an account yet?
-                        <Link to="/sign-up" className="accountAsk--link"> Sign Up.</Link>
+                        <a href="/sign-up" className="accountAsk--link"> Sign Up.</a>
                     </p>
                 </div>
             </div>

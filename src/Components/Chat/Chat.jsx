@@ -26,7 +26,9 @@ class Chat extends React.Component {
                         }
                     }); 
 
-                    this.props.removeMessageById(messages[0]._id);
+                    if(this.props.messages.length > 100) {
+                        this.props.removeMessageById(messages[0]._id);
+                    }
                     this.props.changeText('');
                 }
                     

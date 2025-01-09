@@ -1,6 +1,5 @@
 import React from "react";
 import '../Login/login.scss';
-import { Link } from 'react-router';
 
 class SignUp extends React.Component {
     render() {
@@ -70,8 +69,6 @@ class SignUp extends React.Component {
             }
         }
 
-        // Create template of helper to register
-
         return (
             <div className="login">
                 <div className="login__inner">
@@ -93,8 +90,8 @@ class SignUp extends React.Component {
                             <label htmlFor="" className="form__label">Confirm password</label>
                             <input type="password" className={`form__input ${this.props.passwordError && 'error'}`} value={this.props.confirmText} onChange={e => changeConfirmText(e)}/>
                         </div>
-                        <p className={`register__error name ${this.props.nameError ? 'active' : ''}`} key={'passwordError'}>Name can't be empty</p>
-                        <p className={`register__error email ${this.props.emailError ? 'active' : ''}`} key={'passwordError'}>Email can't be empty</p>
+                        <p className={`register__error name ${this.props.nameError ? 'active' : ''}`} key={'nameError'}>Name can't be empty</p>
+                        <p className={`register__error email ${this.props.emailError ? 'active' : ''}`} key={'emailError'}>Email can't be empty</p>
                         <p className={`register__error password ${this.props.passwordError ? 'active' : ''}`} key={'passwordError'}>Password can't be empty</p>
                         {
                             Object.values(this.props.error).map(key => {
@@ -111,7 +108,7 @@ class SignUp extends React.Component {
                     </form>
                     <p className="accountAsk">
                         Have an account?
-                        <Link to="/login" className="accountAsk--link"> Login.</Link>
+                        <a href="/login" className="accountAsk--link"> Login.</a>
                     </p>
                 </div>
             </div>
