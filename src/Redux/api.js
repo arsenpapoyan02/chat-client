@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 let instance = axios.create({
-    baseURL: 'http://localhost:5000/',
+    baseURL: 'https://chat-server-zjlf.onrender.com',
     headers: {'Authorization': `Bearer ${window.localStorage.getItem('token')}`}
 })
 
