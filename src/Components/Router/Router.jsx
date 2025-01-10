@@ -3,17 +3,15 @@ import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import App from "../App/App";
 import LoginContainer from "../Login/LoginContainer";
 import SignUpContainer from "../SignUp/SignUpContainer";
+import ProtectedRouteContainer from "../ProtectedRoute/ProtectedRouteContainer";
 
 class Router extends React.Component {
 
     componentDidMount() {
-        this.props.getMe();
         this.props.getSocket(this.props.socket);
     }
     
     render() {
-        
-        const isAuth = this.props.isAuth;
 
         return (
             <BrowserRouter>
@@ -22,18 +20,12 @@ class Router extends React.Component {
                         exact
                         path="/" 
                         element={
-                            !isAuth ? (<Navigate replace to='/login'/>) : <App socket={this.props.socket}/>
-                        }/>
-                    <Route 
-                        path="/login"
-                        element={
-                            isAuth ? (<Navigate replace to='/'/>) : <LoginContainer/>
-                        }/>
-                    <Route 
-                        path="/sign-up" 
-                        element={
-                            isAuth ? (<Navigate replace to='/'/>) : <SignUpContainer/>
-                        }/>
+                            <ProtectedRouteContainer>
+                            </ProtectedRouteContainer>
+                        }
+                    />
+                    <Route path="/login" element={<LoginContainer />}/>
+                    <Route path="/sign-up" element={<SignUpContainer />}/>
                 </Routes>
             </BrowserRouter>
         )

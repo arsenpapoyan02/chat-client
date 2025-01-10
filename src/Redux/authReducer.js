@@ -1,10 +1,11 @@
 import { usersApi } from "./api";
 
 const GET_ME = 'GET-ME';
+const SET_AUTH_DATA = 'SET-AUTH-DATA';
 
 const initialState = {
     userData: {},
-    isAuth: false
+    isAuth: null
 }
 
 const authReducer = (state = initialState, action) => {
@@ -13,19 +14,27 @@ const authReducer = (state = initialState, action) => {
             return {
                 ...state,
                 userData: action.data,
-                isAuth: true
+                isAuth: action.bool
+            }
+        case SET_AUTH_DATA: 
+            return {
+                ...state,
+                isAuth: action.bool,
             }
         default:
             return state;
     }
 }
 
+export const setAuthData = (bool) => ({type: SET_AUTH_DATA, bool});
+
 export const getMe = () => (dispatch) => {
     return usersApi.getMe()
     .then(data => {
-        dispatch({type: GET_ME, data})
+        dispatch({type: GET_ME, data, bool: true})
     })
     .catch(err => {
+        dispatch({type: GET_ME, data: undefined, bool: false})
         console.clear();
     })
 }
