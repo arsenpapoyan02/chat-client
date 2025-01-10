@@ -1,6 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
-import App from "../App/App";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import LoginContainer from "../Login/LoginContainer";
 import SignUpContainer from "../SignUp/SignUpContainer";
 import ProtectedRouteContainer from "../ProtectedRoute/ProtectedRouteContainer";
