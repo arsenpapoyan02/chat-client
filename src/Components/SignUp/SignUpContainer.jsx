@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import SignUp from './SignUp';
 import { changeNameText, changeEmailText, changePasswordText, changeConfirmText,
     checkRegisterButton, showPasswordError, register, showError, showNameError, showEmailError} from '../../Redux/signUpReducer';
+import { getMe } from '../../Redux/authReducer';
 
 const mapStateToProps = (state) => ({
     nameText: state.signUp.nameText,
@@ -15,11 +16,13 @@ const mapStateToProps = (state) => ({
     passwordError: state.signUp.passwordError,
     error: state.signUp.error,
 
+    isAuth: state.auth.isAuth
+
 })
 
 const SignUpContainer = connect(mapStateToProps, {changeNameText, changeEmailText, changePasswordText,
     changeConfirmText, checkRegisterButton, showPasswordError,
     register, showError, showNameError,
-    showEmailError})(SignUp);
+    showEmailError, getMe})(SignUp);
 
 export default SignUpContainer;

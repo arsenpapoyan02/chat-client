@@ -1,7 +1,14 @@
 import React from "react";
 import './login.scss';
+import { Navigate } from "react-router";
 
 class Login extends React.Component {
+
+    componentDidMount() {
+        this.props.getMe();
+        console.log('Yo')
+    }
+    
     render() {
 
         const changeEmailText = (e) => {
@@ -35,6 +42,7 @@ class Login extends React.Component {
         }
 
         return (
+            !this.props.isAuth ? 
             <div className="login">
                 <div className="login__inner">
                     <form action="/" className="login__form">
@@ -60,6 +68,7 @@ class Login extends React.Component {
                     </p>
                 </div>
             </div>
+            : <Navigate to='/' replace />
         )
     }
 }

@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import Login from "./Login";
 import { changeEmailText, changePasswordText, checkLoginButton, showLoginError, login } from "../../Redux/loginReducer";
+import { getMe } from "../../Redux/authReducer";
 
 const mapStateToProps = (state) => ({
     emailText: state.login.emailText,
@@ -8,9 +9,11 @@ const mapStateToProps = (state) => ({
 
     isCanLogin: state.login.isCanLogin,
     loginError: state.login.loginError,
-    error: state.login.error
+    error: state.login.error,
+
+    isAuth: state.auth.isAuth
 })
 
-const LoginContainer = connect(mapStateToProps, {changeEmailText, changePasswordText, checkLoginButton, showLoginError, login})(Login);
+const LoginContainer = connect(mapStateToProps, {changeEmailText, changePasswordText, checkLoginButton, showLoginError, login, getMe})(Login);
 
 export default LoginContainer;

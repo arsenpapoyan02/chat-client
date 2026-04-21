@@ -1,7 +1,13 @@
 import React from "react";
 import '../Login/login.scss';
+import { Navigate } from "react-router";
 
 class SignUp extends React.Component {
+
+    componentDidMount() {
+        this.props.getMe();
+    }
+
     render() {
 
         const changeNameText = (e) => {
@@ -70,6 +76,7 @@ class SignUp extends React.Component {
         }
 
         return (
+            !this.props.isAuth ? 
             <div className="login">
                 <div className="login__inner">
                     <form action="/" className="login__form">
@@ -112,6 +119,7 @@ class SignUp extends React.Component {
                     </p>
                 </div>
             </div>
+            : <Navigate to='/' replace />
         )
     }
 }
